@@ -155,6 +155,10 @@
     </ItemDefinitionGroup>
     <ItemGroup>
         <ClCompile Include="algebraQuestion.cpp"/>
+        <ClCompile Include="lineType.cpp"/>
+    </ItemGroup>
+    <ItemGroup>
+        <ClInclude Include="lineType.h"/>
     </ItemGroup>
     <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets"/>
     <ImportGroup Label="ExtensionTargets">
