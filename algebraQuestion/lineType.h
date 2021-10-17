@@ -90,7 +90,8 @@ public:
      */
 
     void convertToSlopeForm(double, double, double);
-    bool isVerticalLine(lineType);
+    bool isVerticalLine();
+    bool isHorizontalLine();
     bool isSameLine(lineType);
     bool isLineParallel(lineType);
     bool isLinePerpendicular(lineType);
