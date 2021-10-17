@@ -95,7 +95,9 @@ public:
     bool isLineParallel(lineType);
     bool isLinePerpendicular(lineType);
     void findIntersection(lineType);
-    void importFileValues(std::fstream);
+
+    // This function takes in three lines and checks with all of them the values. 
+    void calculateLineShape(lineType, lineType, lineType); 
     
     lineType(double, double, double); // CONSTRUCTOR FOR ax + by = c
     lineType(double, double); //Constructor for y = mx + b
