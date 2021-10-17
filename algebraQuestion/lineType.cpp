@@ -1,9 +1,15 @@
 ﻿#include "lineType.h"
 #include <iostream>
 
-void lineType::convertToSlopeForm(double a, double b, double c)
+
+//By take -a/b and c/b we can re-create converting a formula from slope form into x == y;
+void lineType::convertToSlopeForm()
 {
-    
+    double slope = -a/b;
+    double constant = c/b; 
+
+    set_slope(slope);
+    set_constant(constant);
 }
 
 // If line is vertical, our slope will be undefined. 
@@ -52,8 +58,31 @@ bool lineType::isLinePerpendicular(lineType diffLine)
     return false; 
 }
 
-void lineType::findIntersection(lineType)
+void lineType::findIntersection(lineType otherLine)
 {
+    double xCoefficent = 0.0;
+    double constant = 0.0;
+    double x = 0;
+    double y = 0;
+
+    if(otherLine.slope1() < 0)
+        xCoefficent = slope1() + -otherLine.slope1();
+    else
+        xCoefficent = slope1() - otherLine.slope1();
+
+    if (constant1() < 0)
+        constant = constant1() + otherLine.constant1();
+    else
+        constant = otherLine.constant1() - constant1();
+
+    x = constant/xCoefficent;
+
+    y = (slope1() * x) + constant1();
+    
+    set_x_value(x);
+    set_y_value(y);
+
+    std::cout << "You're coordinate intersection for these lines are: ("  << x_value() << "," << y_value() << ") Thanks for using our program!" << std::endl;
 }
 
 void lineType::calculateLineShape(lineType, lineType, lineType)
