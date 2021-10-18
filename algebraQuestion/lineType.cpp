@@ -133,6 +133,18 @@ void lineType::calculateLineShape(lineType side2, lineType side3, lineType side4
     */
 }
 
+lineType::lineType()
+{
+    double a = 0.0; 
+    double b = 0.0;
+    double c = 0.0;
+    
+    double xValue = 0.0;
+    double yValue = 0.0;
+    double slope = 0.0;
+    double constant = 0.0;
+}
+
 //A constructor for creating a ax + by = c
 lineType::lineType(double a, double b, double c)
 {
