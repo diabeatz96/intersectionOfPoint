@@ -97,9 +97,9 @@ public:
     bool isLinePerpendicular(lineType);
     void findIntersection(lineType);
 
-    // This function takes in three lines and checks with all of them the values. 
-    void calculateLineShape(lineType, lineType, lineType); 
-
+    // This function takes in three lines and will convert the point intersections of tall these values.
+    void calculateLineShape(lineType side1, lineType side2, lineType side3); 
+    
     lineType(); 
     lineType(double, double, double); // CONSTRUCTOR FOR ax + by = c
     lineType(double, double); //Constructor for y = mx + b

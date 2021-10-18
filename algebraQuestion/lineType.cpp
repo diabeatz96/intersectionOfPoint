@@ -1,6 +1,8 @@
 ﻿#include "lineType.h"
 #include <iostream>
 
+const double Pi = 3.14159265358979323846264; //constant expression
+const double DegreestoRadians = 180/Pi;
 
 //By take -a/b and c/b we can re-create converting a formula from slope form into x == y;
 void lineType::convertToSlopeForm()
@@ -85,8 +87,50 @@ void lineType::findIntersection(lineType otherLine)
     std::cout << "You're coordinate intersection for these lines are: ("  << x_value() << "," << y_value() << ") Thanks for using our program!" << std::endl;
 }
 
-void lineType::calculateLineShape(lineType, lineType, lineType)
+void lineType::calculateLineShape(lineType side2, lineType side3, lineType side4)
 {
+    /*                      side 4
+     *                   ------------
+     *                  |           |
+     *           side 1 |           |  side 2
+     *                  |           |
+     *                  -------------
+     *                      side 3
+     *
+     *We are basing this off of the assumption that in a box these are the sides (based on the data given to us)
+     */
+    
+    if(isLineParallel(side2) == true && side3.isLineParallel(side4) == true) {
+        if(isLinePerpendicular(side3) && isLinePerpendicular(side4) && side2.isLinePerpendicular(side4) && side2.isLinePerpendicular(side3))
+        {
+            std::cout << "You're points lead me to believe that your equation is a square or a rectangle";
+        }
+        else
+        {
+            std::cout << "You're points fit the description of a parallelogram or a rhombus (graph for further analysis)";
+        }
+    }
+    else
+        std::cout << "You're points fit the aesthetic of a trapezoid or undefined shape (not listed)"; 
+
+
+
+    /* Complicated Version OMITTED, doing easier method. with No angles. 
+    convertToSlopeForm();
+    side2.convertToSlopeForm();
+    side3.convertToSlopeForm();
+    side4.convertToSlopeForm();
+    
+    findIntersection(side3);
+    side2.findIntersection(side4);
+    side3.findIntersection(side2);
+    side4.findIntersection(*this);
+
+    std::cout << atan2(y_value(), x_value()) * DegreestoRadians << std::endl;
+    std::cout << atan2(side2.y_value(), side2.x_value()) * DegreestoRadians << std::endl;
+    std::cout << atan2(side3.y_value(), side3.x_value()) * DegreestoRadians << std::endl;
+    std::cout << atan2(side4.y_value(), side4.x_value()) * DegreestoRadians << std::endl;
+    */
 }
 
 //A constructor for creating a ax + by = c
